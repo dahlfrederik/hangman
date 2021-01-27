@@ -8,8 +8,10 @@ export function showNotification(setter) {
 export function checkWin(correct, wrong, word) {
   let status = "win";
 
+  //Removing blank space from string so that it can be checked accordingly
+  let wordWithoutBlank = word.replace(/\s+/g, "");
   //check for win
-  word.split("").forEach((letter) => {
+  wordWithoutBlank.split("").forEach((letter) => {
     if (!correct.includes(letter)) {
       status = "";
     }

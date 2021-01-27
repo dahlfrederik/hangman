@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import Header from "./components/Header";
-import Figure from "./components/Figure";
+/*import Figure from "./components/Figure";*/
 import WrongLetters from "./components/WrongLetters";
 import Word from "./components/Word";
 import Notication from "./components/Notification";
 import Popup from "./components/Popup";
 import Image from "./components/Image";
+import Digits from "./components/Digits";
 import { showNotification as show } from "./helpers/helpers";
 
 const words = [
@@ -17,19 +18,20 @@ const words = [
   "obi-wan kenobi",
 ];
 
-let selectedWord = words[Math.floor(Math.random() * words.length)];
+let random = Math.floor(Math.random() * words.length);
 
 function App() {
   const [playable, setPlayable] = useState(true);
   const [correctLetters, setCorrectLetters] = useState([]);
   const [wrongLetters, setWrongLetters] = useState([]);
   const [showNotification, setShowNotification] = useState(false);
+  const [selectedWord, setSelectedWord] = useState(words[random]);
 
   useEffect(() => {
     const handleKeydown = (event) => {
       const { key, keyCode } = event;
 
-      if (playable && keyCode >= 65 && keyCode <= 90) {
+      if ((playable && keyCode >= 65 && keyCode <= 90) || keyCode === 189) {
         const letter = key.toLowerCase();
 
         if (selectedWord.includes(letter)) {
@@ -58,9 +60,8 @@ function App() {
     //Empty arrays for data
     setCorrectLetters([]);
     setWrongLetters([]);
-
-    const random = Math.floor(Math.random() * words.length);
-    selectedWord = words[random];
+    random = Math.floor(Math.random() * words.length);
+    setSelectedWord(words[random]);
   }
 
   return (
@@ -72,7 +73,10 @@ function App() {
         </div>
         {/*<Figure wrongLetters={wrongLetters} /> */}
         <WrongLetters wrongLetters={wrongLetters} />
+
         <Word selectedWord={selectedWord} correctLetters={correctLetters} />
+
+        <Digits />
       </div>
       <Popup
         correctLetters={correctLetters}

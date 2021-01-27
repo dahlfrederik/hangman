@@ -1,6 +1,6 @@
 import React from "react";
 
-import darthVader from "../img/darthvader_nobackground.jpeg";
+import darthVader from "../img/darthvader_nobackground.png";
 import img1 from "../img/1.png";
 import img2 from "../img/2.png";
 import img3 from "../img/3.png";
@@ -12,7 +12,7 @@ const Image = ({ wrongLetters }) => {
   const errors = wrongLetters.length;
 
   const styleObject = {
-    width: "100%",
+    maxWidth: "100%",
   };
 
   return (

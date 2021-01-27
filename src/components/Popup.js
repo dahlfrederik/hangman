@@ -16,7 +16,7 @@ const Popup = ({
     finalMessage = "Congratulations! You won!";
     playable = false;
   } else if (checkWin(correctLetters, wrongLetters, selectedWord) === "lose") {
-    finalMessage = "You lost!";
+    finalMessage = "You lost and Darth Vader won!";
     finalMessageRevealWord = `... the word was ${selectedWord}`;
     playable = false;
   }
