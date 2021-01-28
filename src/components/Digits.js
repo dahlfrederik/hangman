@@ -1,7 +1,7 @@
 import React from "react";
 
 const Digits = () => {
-  const letters = "abcdefghijklmnopqrstuvwxyz".split("");
+  const letters = "abcdefghijklmnopqrstuvwxyz-".split("");
 
   return (
     <div className="digit">

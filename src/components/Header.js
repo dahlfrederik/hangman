@@ -3,8 +3,10 @@ import React from "react";
 const Header = () => {
   return (
     <div>
-      <h1>Hangman</h1>
-      <p>Find the hidden starwars name - Enter a letter</p>
+      <h1 className="headerContainer">Hangman</h1>
+      <h2 className="headerContainer">
+        Find the hidden starwars name - Enter a letter
+      </h2>
     </div>
   );
 };

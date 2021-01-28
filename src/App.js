@@ -4,7 +4,7 @@ import Header from "./components/Header";
 /*import Figure from "./components/Figure";*/
 import WrongLetters from "./components/WrongLetters";
 import Word from "./components/Word";
-import Notication from "./components/Notification";
+import Notification from "./components/Notification";
 import Popup from "./components/Popup";
 import Image from "./components/Image";
 import Digits from "./components/Digits";
@@ -31,7 +31,10 @@ function App() {
     const handleKeydown = (event) => {
       const { key, keyCode } = event;
 
-      if ((playable && keyCode >= 65 && keyCode <= 90) || keyCode === 189) {
+      if (
+        (playable && keyCode >= 65 && keyCode <= 90) ||
+        (playable && keyCode === 189)
+      ) {
         const letter = key.toLowerCase();
 
         if (selectedWord.includes(letter)) {
@@ -78,6 +81,7 @@ function App() {
 
         <Digits />
       </div>
+      <Notification showNotification={showNotification} />
       <Popup
         correctLetters={correctLetters}
         wrongLetters={wrongLetters}
@@ -85,7 +89,6 @@ function App() {
         setPlayable={setPlayable}
         playAgain={playAgain}
       />
-      <Notication showNotification={showNotification} />
     </>
   );
 }
